@@ -1,55 +1,85 @@
+\
 / {
     keymap {
         compatible = "zmk,keymap";
 
-        base {
+        // =====================
+        // Layer L0 — Base (AZERTY-style per screenshot)
+        // =====================
+        L0 {
             bindings = <
-                &kp ESC &kp N5 &kp MINUS &kp N3 &kp N4 &kp N6 &kp N8 &kp QUOT &kp RA(N6) &kp N1 &kp RA(N3) &kp BSPC
-                &kp TAB &kp A &kp Z &kp E &kp R &kp T &kp Y &kp U &kp I &kp O &kp P &kp ENTER
-                &kp LSHIFT &kp Q &kp S &kp D &kp F &kp G &kp H &kp J &kp K &kp L &kp M &kp ENTER
-                &kp LCTRL &kp W &kp X &kp C &kp V &kp B &kp N &kp COMMA &kp UP &kp DOT &kp QMARK &trans
-                // Thumbs
-                &kp LGUI &kp LALT &kp SPACE &mo L2 &mo L3            &kp SPACE &mo L1 &kp LEFT &kp DOWN &kp RIGHT
+                // Row 1 (left 6)                          // Row 1 (right 6)
+                &kp ESC   &kp N5   &kp MINUS  &kp N3  &kp N4  &kp N6      &kp N8     &kp QUOT   &kp RA(N6)  &kp N1     &kp RA(N3)  &kp BSPC
+                // Row 2
+                &kp TAB   &kp A    &kp Z      &kp E   &kp R   &kp T       &kp Y      &kp U      &kp I       &kp O      &kp P       &kp ENTER
+                // Row 3
+                &kp LSHIFT &kp Q   &kp S      &kp D   &kp F   &kp G       &kp H      &kp J      &kp K       &kp L      &kp M       &kp ENTER
+                // Row 4
+                &kp LCTRL &kp W    &kp X      &kp C   &kp V   &kp B       &kp N      &kp COMMA  &kp UP      &kp DOT    &kp QMARK   &trans
+                // Thumbs (5 left, 5 right)
+                &kp LGUI  &kp LALT &kp SPACE  &mo L2  &mo L3              &kp SPACE  &mo L1     &kp LEFT    &kp DOWN   &kp RIGHT
             >;
         };
 
+        // =====================
+        // Layer L1 — Chiffres & symboles (selon capture)
+        // =====================
         L1 {
             bindings = <
-                &trans &trans &trans &trans &trans &trans &kp N5 &kp MINUS &kp LS(N5) &kp RA(E) &kp RA(N4) &kp BSPC
-                &kp TAB &kp N0 &trans &kp N7 &trans &trans &kp N7 &kp N8 &kp N9 &kp LT &kp GT &kp ENTER
-                &kp LSHIFT &trans &trans &trans &trans &trans &kp N4 &kp N5 &kp N6 &kp LS(EQUAL) &kp N6 &kp ENTER
-                &kp LCTRL &trans &trans &kp N9 &trans &trans &kp N1 &kp N2 &kp N3 &kp ASTRK &kp SLASH &kp RA(EQUAL)
+                // Row 1 (left 6)                                                 // Row 1 (right 6)
+                &trans   &trans   &trans   &trans   &trans   &trans               &kp N5     &kp MINUS   &kp LS(N5)  &kp RA(E)   &kp RA(N4)  &kp BSPC   // ( ) % € $
+                // Row 2
+                &kp TAB  &kp N0   &trans   &kp N7   &trans   &trans               &kp N7     &kp N8      &kp N9      &kp LT      &kp GT      &kp ENTER
+                // Row 3
+                &kp LSHIFT &trans &trans   &trans   &trans   &trans               &kp N4     &kp N5      &kp N6      &kp LS(EQUAL) &kp N6    &kp ENTER  // 4 5 6 + -
+                // Row 4
+                &kp LCTRL &trans  &trans   &kp N9   &trans   &trans               &kp N1     &kp N2      &kp N3      &kp DOT     &kp SLASH   &kp RA(EQUAL)
                 // Thumbs
-                &kp LGUI &kp LALT &kp SPACE &mo L2 &mo L3            &kp SPACE &mo L1 &kp LEFT &kp DOWN &kp RIGHT
+                &kp LGUI  &kp LALT &kp SPACE &mo L2 &mo L3                       &kp SPACE  &mo L1       &kp N0      &kp DOT     &kp EQUAL
             >;
         };
 
+        // =====================
+        // Layer L2 — Nav / AltGr / ponctuation avancée (selon capture)
+        // =====================
         L2 {
             bindings = <
-                &kp GRAVE &kp RA(N4) &kp RA(EQUAL) &kp LBRC &kp RA(N5) &kp RA(MINUS) &trans &trans &trans &trans &trans &kp BSPC
-                &kp TAB &kp RA(N0) &trans &kp N2 &trans &trans &trans &trans &trans &kp RA(RBRC) &trans &kp ENTER
-                &kp LSHIFT &trans &trans &kp UP &trans &trans &trans &trans &trans &trans &trans &kp ENTER
-                &kp LCTRL &trans &kp LEFT &kp DOWN &kp RIGHT &trans &kp RA(N2) &kp SEMI &kp COLON &kp EXCL &trans &trans
+                // Row 1
+                &kp GRAVE   &kp RA(N4) &kp RA(EQUAL)  &kp LBRC   &kp RA(N5)   &kp RA(MINUS)     &trans   &trans   &trans      &trans    &trans      &kp BSPC   // ² ( ) ^ [ ] …
+                // Row 2
+                &kp TAB     &kp RA(N0) &trans         &kp N2     &trans       &trans            &trans   &trans   &trans      &kp RA(RBRC) &trans   &kp ENTER  // @ … é … … … … … … ) …
+                // Row 3
+                &kp LSHIFT  &trans     &trans         &kp UP     &trans       &trans            &trans   &trans   &trans      &trans    &trans      &kp ENTER
+                // Row 4
+                &kp LCTRL   &kp LEFT   &kp DOWN       &kp RIGHT  &trans       &trans            &kp RA(N2) &kp SEMI &kp COLON &kp EXCL  &trans      &trans     // ~ ; : !
                 // Thumbs
-                &kp LGUI &kp LALT &kp SPACE &mo L2 &mo L3            &kp SPACE &mo L1 &kp LEFT &kp DOWN &kp RIGHT
+                &kp LGUI  &kp LALT &kp SPACE &mo L2 &mo L3                                &kp SPACE &mo L1  &trans &trans &trans
             >;
         };
 
+        // =====================
+        // Layer L3 — Modeste (quelques touches utilitaires d’après capture)
+        // =====================
         L3 {
             bindings = <
-                &kp ESC &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &kp BSPC
-                &kp TAB &trans &trans &kp RA(E) &trans &trans &trans &trans &trans &trans &trans &kp ENTER
-                &kp LSHIFT &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &kp ENTER
-                &kp LCTRL &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                // Row 1
+                &kp ESC   &trans &trans &trans &trans &trans      &trans &trans &trans &trans &trans &kp BSPC
+                // Row 2
+                &kp TAB   &trans &trans &kp RA(E) &trans &trans    &trans &trans &trans &trans &trans &kp ENTER   // é via AltGr+E
+                // Row 3
+                &kp LSHIFT &trans &trans &trans &trans &trans      &trans &trans &trans &trans &trans &kp ENTER
+                // Row 4
+                &kp LCTRL &trans &trans &trans &trans &trans       &trans &trans &trans &trans &trans &trans
                 // Thumbs
-                &kp LGUI &kp LALT &kp SPACE &mo L2 &mo L3            &kp SPACE &mo L1 &kp LEFT &kp DOWN &kp RIGHT
+                &kp LGUI  &kp LALT &kp SPACE &mo L2 &mo L3         &kp SPACE &mo L1 &trans &trans &trans
             >;
         };
-
     };
 };
 
-// Encoders: left = volume, right = scroll (wheel)
+// =====================
+// Encoders: left = volume, right = scroll
+// =====================
 / {
   behaviors {
     inc_dec_vol: inc_dec_vol {
@@ -70,6 +100,7 @@
 &sensor_left {
   bindings = <&inc_dec_vol>;
 };
+
 &sensor_right {
   bindings = <&scroll_ud>;
 };
