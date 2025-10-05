@@ -17,8 +17,8 @@
     keymap {
         compatible = "zmk,keymap";
 
-        TEST: default_layer {
-            display-name = "MATRIX TEST";
+        default_layer {
+            display-name = "Base";
             bindings = <
                 // Row 1 (Left 6)                               // Row 1 (Right 6)
                 &kp A  &kp B  &kp C  &kp D  &kp E  &kp F         &kp G  &kp H  &kp I  &kp J  &kp K  &kp L
